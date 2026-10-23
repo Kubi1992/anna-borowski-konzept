@@ -41,8 +41,7 @@
     <a class="brand" href="index.html"><span class="brand__name">Anna Borowski</span><span class="brand__sub">Malerei</span></a>
     <nav class="nav" aria-label="Hauptnavigation">
       <ul>
-        <li><a href="index.html" aria-current="page">Start</a></li>
-        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="index.html" aria-current="page">Galerie</a></li>
         <li><a href="ausstellungen.html">Ausstellungen</a></li>
         <li><a href="ueber-mich.html">Über mich</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -60,77 +59,23 @@
 
   <main class="main" id="main">
 
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__text">
-          <p class="eyebrow">Malerei · Öl auf Leinwand</p>
-          <h1>Stille Räume aus Licht und Tiefe</h1>
-          <p class="lead">Schichten aus Blau, Grau und warmem Weiß – Bilder zwischen Abstraktion und Figur, zwischen Erinnerung und Gegenwart.</p>
-          <div class="btn-row">
-            <a class="btn btn--primary" href="galerie.html">Zur Galerie <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn" href="ausstellungen.html">Ausstellungen</a>
-          </div>
-        </div>
-        <figure class="hero__art protected">
-          <button type="button" data-open-work="rueckhalt" aria-label="Rückhalt – Großansicht öffnen">
-            <img src="assets/img/works/large/rueckhalt.jpg" width="2649" height="4355" alt="Rückhalt, Öl auf Leinwand, 80 × 130 cm" draggable="false" fetchpriority="high">
-          </button>
-          <figcaption><em>Rückhalt</em> · Öl auf Leinwand, 80 × 130 cm</figcaption>
-        </figure>
-      </div>
-    </section>
+    <div class="container">
+      <header class="page-head">
+        <h1>Galerie</h1>
+      </header>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div><p class="eyebrow">Auswahl</p><h2>Neue Arbeiten</h2></div>
-          <a class="link-arrow" href="galerie.html">Alle Werke ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="toolbar">
+        <div class="segmented view-switch" role="group" aria-label="Darstellung wählen">
+          <button type="button" data-view="rows" aria-pressed="true" title="Reihen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="5" height="7" rx="1"/><rect x="10" y="13" width="11" height="7" rx="1"/></svg><span class="label">Reihen</span></button>
+          <button type="button" data-view="masonry" aria-pressed="false" title="Mosaik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="10" rx="1"/><rect x="13" y="3" width="8" height="6" rx="1"/><rect x="3" y="15" width="8" height="6" rx="1"/><rect x="13" y="11" width="8" height="10" rx="1"/></svg><span class="label">Mosaik</span></button>
+          <button type="button" data-view="single" aria-pressed="false" title="Einzeln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="1"/><path d="M8 20.5h8" stroke-linecap="round"/></svg><span class="label">Einzeln</span></button>
         </div>
-        <div data-featured="von-der-tiefe,begegnung,ein-gedanke"></div>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="statement reveal">
-          <blockquote>„Ich male das, was zwischen den Dingen liegt – den Moment, bevor etwas Gestalt annimmt.“</blockquote>
-          <cite>Anna Borowski · Platzhalterzitat</cite>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <div><p class="eyebrow">Demnächst</p><h2>Nächste Ausstellung</h2></div>
-          <a class="link-arrow" href="ausstellungen.html">Alle Termine <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-        <article class="event reveal">
-          <div class="event__date"><span class="event__day">14</span><span class="event__month">Nov 2026</span></div>
-          <div>
-            <p class="event__type">Einzelausstellung · Beispiel</p>
-            <h3>Zwischenräume</h3>
-            <ul class="event__facts">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>14. November – 20. Dezember 2026 · Vernissage Sa., 14.11., 19 Uhr</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Galerie Musterraum, Beispielstraße 12, 80331 München</span></li>
-            </ul>
-            <a class="link-arrow" href="ausstellungen.html">Details <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-band reveal">
-          <div>
-            <h2>Ein Bild gefunden, das bleibt?</h2>
-            <p>Alle verfügbaren Originale können direkt angefragt werden – auch Atelierbesuche sind nach Absprache möglich.</p>
-          </div>
-          <a class="btn btn--primary" href="kontakt.html">Kontakt aufnehmen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
-    </section>
+      <div id="gallery" class="gallery gallery--rows" aria-live="polite"></div>
+      <noscript><p>Für die Galerie wird JavaScript benötigt.</p></noscript>
+    </div>
+    <div class="section"></div>
 
     <footer class="site-footer">
       <span>© <span data-year>2026</span> Anna Borowski · Designkonzept</span>

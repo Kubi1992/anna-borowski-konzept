@@ -7,8 +7,7 @@ direkt auf GitHub Pages lauffähig.
 
 | Datei                | Inhalt                                                                 |
 |----------------------|------------------------------------------------------------------------|
-| `index.html`         | Startseite: Hero-Bild, Auswahl, Zitat, nächste Ausstellung, Kontakt-CTA |
-| `galerie.html`       | Galerie mit Filter (Alle/Verfügbar/Verkauft) und 3 Darstellungen       |
+| `index.html`         | Galerie (Startseite) mit 3 Darstellungen                               |
 | `ausstellungen.html` | Bevorstehende Termine (mit .ics-Kalenderdownload) und Archiv           |
 | `ueber-mich.html`    | About-Seite (Platzhaltertexte)                                         |
 | `kontakt.html`       | Kontaktformular (Demo, sendet nichts); `kontakt.html?werk=<id>` belegt die Kaufanfrage vor |
@@ -48,7 +47,7 @@ das Konzept nicht aufnehmen.
 
 ## Offene Punkte für die echte Website
 
-- Echte Texte (Über mich, Zitat), Porträtfoto, Ausstellungstermine, E-Mail-Adresse, Instagram-Link
+- Echte Texte (Über mich), Porträtfoto, Ausstellungstermine, E-Mail-Adresse, Instagram-Link
 - Verkauft-Status und Preise der Werke (aktuell Beispiel: „Der AusWeg“ und „Innere Ferne“ als verkauft markiert)
 - Formularversand (z. B. Formspree, Netlify Forms oder eigener Server)
 - Impressum und Datenschutzerklärung (in Deutschland Pflicht)

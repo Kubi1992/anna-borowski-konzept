@@ -181,7 +181,7 @@
   function large(w) { return "assets/img/works/large/" + w.id + ".jpg"; }
   function byId(id) { for (var i = 0; i < WORKS.length; i++) if (WORKS[i].id === id) return WORKS[i]; return null; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function workUrl(w) { return location.href.split("#")[0].split("?")[0].replace(/[^/]*$/, "") + "galerie.html#werk-" + w.id; }
+  function workUrl(w) { return location.href.split("#")[0].split("?")[0].replace(/[^/]*$/, "") + "index.html#werk-" + w.id; }
 
   function statusHtml(w) {
     return w.status === "sold"
@@ -221,9 +221,7 @@
 
   /* ---------------------------------------------------------------- Galerie */
   function renderGrid(container, list) {
-    container.innerHTML = list.length
-      ? list.map(workCard).join("")
-      : '<p class="gallery-empty">Keine Werke in dieser Auswahl.</p>';
+    container.innerHTML = list.map(workCard).join("");
     observeReveal(container);
     container.onclick = function (e) {
       var inq = e.target.closest("[data-inquire]");
@@ -236,55 +234,24 @@
   function initGallery() {
     var gallery = $("#gallery");
     if (!gallery) return;
-    var state = {
-      filter: "all",
-      view: store.get("gallery-view") || "rows"
-    };
-    var counts = {
-      all: WORKS.length,
-      available: WORKS.filter(function (w) { return w.status !== "sold"; }).length,
-      sold: WORKS.filter(function (w) { return w.status === "sold"; }).length
-    };
-    $$("[data-filter]").forEach(function (b) {
-      var c = $(".count", b); if (c) c.textContent = counts[b.dataset.filter];
-    });
+    var view = store.get("gallery-view") || "rows";
 
     function render() {
-      var list = WORKS.filter(function (w) {
-        return state.filter === "all" || (state.filter === "sold" ? w.status === "sold" : w.status !== "sold");
-      });
-      gallery.className = "gallery gallery--" + state.view;
-      $$("[data-filter]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.filter === state.filter)); });
-      $$("[data-view]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.view === state.view)); });
-      renderGrid(gallery, list);
+      gallery.className = "gallery gallery--" + view;
+      $$("[data-view]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.view === view)); });
+      renderGrid(gallery, WORKS);
     }
-    $$("[data-filter]").forEach(function (b) {
-      b.addEventListener("click", function () { state.filter = b.dataset.filter; render(); });
-    });
     $$("[data-view]").forEach(function (b) {
-      b.addEventListener("click", function () { state.view = b.dataset.view; store.set("gallery-view", state.view); render(); });
+      b.addEventListener("click", function () { view = b.dataset.view; store.set("gallery-view", view); render(); });
     });
     render();
 
-    // Direktlink auf ein Werk: galerie.html#werk-<id>
+    // Direktlink auf ein Werk: index.html#werk-<id>
     var m = location.hash.match(/^#werk-(.+)$/);
     if (m) {
       var idx = WORKS.findIndex(function (w) { return w.id === decodeURIComponent(m[1]); });
       if (idx > -1) lightbox.open(WORKS, idx);
     }
-  }
-
-  function initFeatured() {
-    $$("[data-featured]").forEach(function (el) {
-      var list = el.dataset.featured.split(",").map(byId).filter(Boolean);
-      el.className += " gallery gallery--rows";
-      renderGrid(el, list);
-    });
-    $$("[data-open-work]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        lightbox.open(WORKS, WORKS.indexOf(byId(btn.dataset.openWork)));
-      });
-    });
   }
 
   /* --------------------------------------------------------------- Lightbox */
@@ -491,7 +458,6 @@
     initShare();
     initProtection();
     initGallery();
-    initFeatured();
     initContactForm();
     initCalendar();
     observeReveal(document);
