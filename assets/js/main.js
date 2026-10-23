@@ -234,7 +234,8 @@
   function initGallery() {
     var gallery = $("#gallery");
     if (!gallery) return;
-    var view = store.get("gallery-view") || "rows";
+    // Ansicht-Umschalter ist derzeit ausgeblendet → ohne Buttons immer „Reihen“
+    var view = ($("[data-view]") && store.get("gallery-view")) || "rows";
 
     function render() {
       gallery.className = "gallery gallery--" + view;
