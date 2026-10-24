@@ -389,6 +389,23 @@ button { font: inherit; color: inherit; }
   .view-switch button { padding: 0 12px; }
 }
 
+/* Verstecktes Testmenü (index.html?test) – nur für interne Vergleiche */
+.view-tester {
+  position: fixed; right: 16px; bottom: 16px; z-index: 90;
+  display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 32px);
+  padding: 6px 6px 6px 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--surface); box-shadow: 0 6px 24px -8px rgb(0 0 0 / .3);
+}
+.view-tester__label { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.view-tester .segmented button { padding: 0 12px; }
+.view-tester__close {
+  display: grid; place-items: center; width: 32px; height: 32px; flex: none;
+  border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer;
+}
+.view-tester__close:hover { background: var(--surface-2); color: var(--text); }
+.view-tester__close svg { width: 16px; height: 16px; }
+@media (max-width: 420px) { .view-tester__label { display: none; } }
+
 /* ---------- Galerie: Werk-Karte ---------- */
 .work { margin: 0; }
 .work__media {

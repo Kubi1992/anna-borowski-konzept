@@ -231,10 +231,36 @@
     };
   }
 
+  /* Verstecktes Testmenü für die Galerie-Ansicht (nur intern).
+     Einschalten: index.html?test · Ausschalten: ×-Button im Menü oder ?test=0 */
+  function initViewTester() {
+    var param = new URLSearchParams(location.search).get("test");
+    if (param !== null) store.set("gallery-test", param === "0" ? "" : "1");
+    if (store.get("gallery-test") !== "1") return;
+
+    var views = [["rows", "Reihen"], ["masonry", "Mosaik"], ["single", "Einzeln"]];
+    var panel = document.createElement("div");
+    panel.className = "view-tester";
+    panel.innerHTML =
+      '<span class="view-tester__label">Test · Ansicht</span>' +
+      '<div class="segmented" role="group" aria-label="Darstellung wählen">' +
+        views.map(function (v) { return '<button type="button" data-view="' + v[0] + '" aria-pressed="false">' + v[1] + '</button>'; }).join("") +
+      '</div>' +
+      '<button type="button" class="view-tester__close" aria-label="Testmenü ausschalten" title="Testmenü ausschalten">' + ICONS.close + '</button>';
+    document.body.appendChild(panel);
+
+    $(".view-tester__close", panel).addEventListener("click", function () {
+      store.set("gallery-test", "");
+      store.set("gallery-view", "");
+      location.href = location.pathname + location.hash;
+    });
+  }
+
   function initGallery() {
     var gallery = $("#gallery");
     if (!gallery) return;
-    // Ansicht-Umschalter ist derzeit ausgeblendet → ohne Buttons immer „Reihen“
+    initViewTester();
+    // Ansicht-Umschalter ist nur im Testmodus sichtbar → ohne Buttons immer „Reihen“
     var view = ($("[data-view]") && store.get("gallery-view")) || "rows";
 
     function render() {
